@@ -4,7 +4,7 @@ var zooAnimals = ["giraffe", "lion", "tiger", "hippo", "elephant", "zebra", "sna
 var computerWord = zooAnimals[Math.floor(Math.random() * zooAnimals.length)];
 //var to split computerWord
 var wordLetters = computerWord.split("")
-//var for guesses, wins
+//var for guesses, wins, previous guess
 var wins = 0;
 var guesses = 15;
 //vars for quick references
@@ -17,8 +17,9 @@ var winsText = document.getElementById("wins")
 
 //key pressed function
 document.onkeyup = function(event){
+
 //var for userGuess
-    var userGuess = event.key; //the key the user pressed
+    var userGuess = event.key; //the key the user pressed  
     //wordGenerator function
     function wordGenerator(word) {
         var length = word.length
@@ -32,14 +33,23 @@ document.onkeyup = function(event){
     //what happens when space is pressed
     console.log(computerWord)
     directionsText.textContent = ""
+    guessesText.textContent = guesses
     wordGenerator(computerWord)
     //what happens with each userGuess
-    if (computerWord.includes(userGuess)) {
-            userRightGuessText.textContent = userGuess
+    var wordLetters = computerWord.split("")
+     for (var w = 0; w<wordLetters.length; w++){
+        if (computerWord.includes(userGuess)) {
+            if (userGuess === wordLetters[w]){
+            var lettersIn = document.createElement("p");
+            var correctLetter = document.createTextNode (userGuess);
+            lettersIn.appendChild(correctLetter);
+            document.getElementById("random-word").appendChild(lettersIn);
             guesses --;
-    } else {
-        userWrongGuessText.textContent = userGuess 
-        guesses --;
-    }
- 
-}
+        } } else {
+        var lettersNot = document.createElement("p");
+        var incorrectLetter = document.createTextNode (userGuess);
+            lettersNot.appendChild(incorrectLetter);
+            document.getElementById("letter-guessed").appendChild(lettersNot);
+            guesses --;
+              } 
+}}
