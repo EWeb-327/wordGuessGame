@@ -1,0 +1,11 @@
+1. User presses a key
+2. Computer selects random word
+3. _ for each letter in the random word shows on the screen
+4. User guesses letters
+    1. Guess count goes down with each new letter
+        a. if the letter is in the word it replaces that _
+        b. if the letter is not in the word it shows on the screen in "guesses"
+    2. If user guesses the word within 15 guesses they win
+        a. win count goes up by +1
+        b. guess count goes back to 15
+        c. computer chooeses new word
