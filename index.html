@@ -1,20 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>Word Guess Game</title>
 </head>
+
 <body>
     <div>
-        <p id="directions">Press space to start! As you guess letters you will use your guess count and see if the letter you chose is part of the word. If you guess correctly with the guesses available you win a point!</p>
-        <div>Wins: <p id="wins"></p></div>
-        <div>Random Word: <p id="random-word"></p></div>
-        <div>Guessed Letter in Word: <p id="current-word"></p></div>
-        <div>Guesses Left: <p id="guess-count"></p></div>
-        <div> Guessed Letter not in Word: <p id="letter-guessed"></p></div>
+        <p id="directions">Press space to start! As you guess letters you will
+            use your guess count and see if the letter you chose is part of the
+            word. If you guess correctly with the guesses available you win a
+            point!</p>
+        <div>Wins: <p id="wins"></p>
+        </div>
+        <div>Random Word: <p id="random-word"></p>
+            <div id="underline"></div>
+        </div>
+        <div>Guessed Letters in word: <p id="current-word"></p>
+        </div>
+        <div>Guesses Left: <p id="guess-count"></p>
+        </div>
+        <div> Guessed Letters not in word: <p id="letter-guessed"></p>
+        </div>
     </div>
     <script type="text/javascript" src="assets/JavaScript/game.js"></script>
 </body>
+
 </html>
