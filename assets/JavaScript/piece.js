@@ -1,4 +1,4 @@
-var zooAnimals = ["giraffe", "lion", "tiger", "hippo", "elephant", "zebra", "snake", "okapi", "camel", "penguin", "otter", "peacock", "rhino", "monkey", "panda", "sloth", "gorilla", "koala", "kangaroo", "wolf", "tortoise", "lemur", "cheetah", "alligator", "capybara", "meerkat"];
+var zooAnimals = ["elephant", "penguin", "otter", "peacock", "rhinoceros", "chimpanzee", "panda", "gorilla", "koala", "jackal", "turtle", "galago", "jaguar", "hippo", "antelope", "meerkat"];
 var computerWord = zooAnimals[Math.floor(Math.random() * zooAnimals.length)];
 var wordLetters = computerWord.split("")
 for (var i = 0; i < wordLetters.length; i++) {
@@ -10,8 +10,15 @@ for (var i = 0; i < length; i++) {
     emptyString = emptyString + "_ "
 }
 
+
 var wins = 0;
 var guesses = 15;
+var correctGuesses = [];
+
+function addLetter(input){
+    correctGuesses.push(input);
+    console.log(correctGuesses)
+}
 
 var directionsText = document.getElementById("directions");
 var userWrongGuessText = document.getElementById("letter-guessed");
@@ -28,9 +35,11 @@ var letter6 = document.getElementById("letter6")
 var letter7 = document.getElementById("letter7")
 var letter8 = document.getElementById("letter8")
 var letter9 = document.getElementById("letter9")
+var letter10 = document.getElementById("letter10")
 
-document.onkeyup = function (event) {
+document.onkeyup = function game(event) {
     directionsText.textContent = ""
+    winsText.textContent = wins
     guessesText.textContent = guesses
     //var for userGuess
     var userGuess = event.key; //the key the user pressed 
@@ -48,17 +57,17 @@ document.onkeyup = function (event) {
         for (var i = 0; i < length; i++) {
             emptyString = emptyString + "_ "
         }
-       computerChoiceText.textContent = emptyString
+        computerChoiceText.textContent = emptyString
     }
     
 
     wordGenerator(computerWord)
 
-   function showLetter(letter) {
+   function showLetter() {
     var wordLetters = computerWord.split("")
     for( var i = 0; i<wordLetters.length; i++){
         if (userGuess === wordLetters[0]) {
-        letter1.textContent=userGuess
+        letter1.textContent=userGuess;
         }
         if (userGuess === wordLetters[1]) {
         letter2.textContent = userGuess
@@ -84,9 +93,12 @@ document.onkeyup = function (event) {
         if (userGuess === wordLetters[8]) {
             letter9.textContent = userGuess
         } 
-        else {
+        if (userGuess === wordLetters[9]) {
+            letter10.textContent = userGuess
         } 
-    }
+        else {
+        }
+     }}
     // var hideLetter = function () {
     //     document.getElementById("random-word").style.display = 'none';
     //     };
@@ -101,7 +113,8 @@ document.onkeyup = function (event) {
         // lettersIn.appendChild(correctLetter);
         // document.getElementById("current-word").appendChild(lettersIn);
         // hideUnderline();
-        showLetter(userGuess);
+        addLetter(userGuess);
+        showLetter();
         guesses --;
     } else {
         var lettersNot = document.createElement("div");
@@ -110,9 +123,26 @@ document.onkeyup = function (event) {
         document.getElementById("letter-guessed").appendChild(lettersNot);
         guesses --;
       }
-    // if (computerChoiceText.textContent = computerWord){
-    //     wins++;
-    //     wordGenerator(computerWord)  
-    // }
+    if (correctGuesses.length === wordLetters.length-1){
+        wins++;
+        alert("You WON!");
+        var playAgain = confirm ("Play Again?")
+        if (playAgain) {
+           game(event);
+           return;
+        } else {
+            alert("Thanks for playing!")
+        }  
+    } if (guesses === -1){
+        alert("You're out of guesses...")
+        var playAgain = confirm ("Play Again?")
+        if (playAgain) {
+           game(event);
+           return;
+        } else {
+            alert("Thanks for playing!")
+        }  
     }
-}
+    }
+
+

@@ -7,6 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>Word Guess Game</title>
+    <style>
+    .clearfix::after {
+    clear: both;
+    content: "";
+    display: block;}
+    </style>
 </head>
 
 <body>
@@ -17,34 +23,41 @@
             point!</p>
         <div>Wins: <p id="wins"></p>
         </div>
-        <div>Random Word: <p id="random-word underline"></p>
+        <div class="clearfix">Random Word:
+            <section class="wrapper">
             <div id="underline1">
-                <div id="letter1"></div>
+                <div id="letter1" style="float: left"></div>
             </div>
             <div id="underline2">
-                <div id="letter2"></div>
+                <div id="letter2" style="float: left"></div>
             </div>
             <div id="underline3">
-                <div id="letter3"></div>
+                <div id="letter3" style="float: left"></div>
             </div>
             <div id="underline4">
-                <div id="letter4"></div>
+                <div id="letter4" style="float: left"></div>
             </div>
             <div id="underline5">
-                <div id="letter5"></div>
+                <div id="letter5" style="float: left"></div>
             </div>
             <div id="underline6">
-                <div id="letter6"></div>
+                <div id="letter6" style="float: left"></div>
             </div>
             <div id="underline7">
-                <div id="letter7"></div>
+                <div id="letter7" style="float: left"></div>
             </div>
             <div id="underline8">
-                <div id="letter8"></div>
+                <div id="letter8" style="float: left"></div>
             </div>
             <div id="underline9">
-                <div id="letter9"></div>
+                <div id="letter9" style="float: left"></div>
             </div>
+            <div id="underline10">
+                    <div id="letter10" style="float: left"></div>
+            </div>
+            <br>
+            <p id="random-word"></p>
+        </section>
         </div> 
         <div>Guesses Left: <p id="guess-count"></p>
         </div>
