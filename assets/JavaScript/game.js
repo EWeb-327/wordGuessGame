@@ -6,13 +6,20 @@ var computerWord = zooAnimals[Math.floor(Math.random() * zooAnimals.length)];
 var wordLetters = computerWord.split("")
 for( var i = 0; i<wordLetters.length; i++){
 var letter = wordLetters[i]}
-var emptyString = ""
-        console.log(length)
-        for (var i = 0; i < length; i++) {
-            emptyString = emptyString + "_ "
-        }
 //var to show and hide elements
-
+var showLetter = function() {
+    if (userGuess === wordLetters[i]){
+    document.getElementById("random-word").style.display = 'block';}
+};
+var hideLetter = function () {
+    document.getElementById("random-word").style.display = 'none';
+};
+var showUnderline = function() {
+    document.getElementById("random-word").style.display = 'block';
+}
+var hideUnderline = function() {
+    document.getElementById("random-word").style.display = 'none';
+}
 //var for guesses, wins, previous guess
 var wins = 0;
 var guesses = 15;
@@ -31,20 +38,12 @@ document.onkeyup = function(event){
 //var for userGuess
     var userGuess = event.key; //the key the user pressed 
     
-    var showLetter = function() {
-        for( var i = 0; i<wordLetters.length; i++){
-            wordLetters[i] = userGuess}
-        document.getElementById("random-word").style.display = 'block';
-    };
-    var hideLetter = function () {
-        document.getElementById("random-word").style.display = 'none';
-    };
-    var showUnderline = function() {
-       document.getElementById("underline").style.display = 'block';
-    };
-    var hideUnderline = function() {
-        document.getElementById("underline").style.display = 'none';
-    };
+    // function replace(){
+    //     var str = computerWord
+    //     var pos =str.search(userGuess)
+    //     for (var l = 0; l<computerWord.length; l++){
+    //     computerWord[l].replace(userGuess)
+    // }}
     //function for putting random word page
     function wordGenerator(word) {
         var wordLetters = computerWord.split("")
@@ -68,7 +67,7 @@ document.onkeyup = function(event){
     hideLetter();
 
     //what happens with each userGuess
-    if (wordLetters.includes(userGuess)) {
+    if (computerWord.includes(userGuess)) {
             var lettersIn = document.createElement("div");
             var correctLetter = document.createTextNode (userGuess);
             lettersIn.appendChild(correctLetter);
