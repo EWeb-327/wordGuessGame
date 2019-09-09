@@ -23,7 +23,7 @@
             point!</p>
         <div>Wins: <p id="wins"></p>
         </div>
-        <div class="clearfix">Random Word:
+        <div class="clearfix"  onkeydown="lettersOnly(this)">Random Word:
             <section class="wrapper">
             <div id="underline1">
                 <div id="letter1" style="float: left"></div>
@@ -61,7 +61,7 @@
         </div> 
         <div>Guesses Left: <p id="guess-count"></p>
         </div>
-        <div> Guessed Letters not in word: <p id="letter-guessed"></p>
+        <div> Guessed Letters not in word: <p id="letter-guessed"  onkeydown="lettersOnly(this)"></p>
         </div>
     </div>
     <script type="text/javascript" src="assets/JavaScript/piece.js"></script>
