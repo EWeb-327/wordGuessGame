@@ -52,6 +52,8 @@ function addLetter(input) {
     correctGuesses.push(input);
     console.log(correctGuesses)
     guesses --;
+    } else {
+        return;
     }
 }
 function addWrongLetter(input) {
@@ -59,28 +61,33 @@ function addWrongLetter(input) {
     wrongGuesses.push(input);
     guesses --;
     console.log(wrongGuesses)
+    } else{
+        return;
     }
 }
 function restart() {
     computerWord = zooAnimals[Math.floor(Math.random() * zooAnimals.length)]
     wordGenerator(computerWord)
+    wordLetters = computerWord.split("")
     guesses = 15
     guessesText.textContent = guesses
+    correctGuesses= []
+    console.log(correctGuesses)
+    wrongGuesses= []
+    console.log(wrongGuesses)
     emptyString = ""
     computerChoiceText.textContent = ""
     userWrongGuessText.textContent = ""
-    letter1.textContent = " ";
-    letter2.textContent = " ";
-    letter3.textContent = " ";
-    letter4.textContent = " ";
-    letter5.textContent = " ";
-    letter6.textContent = " ";
-    letter7.textContent = " ";
-    letter8.textContent = " ";
-    letter9.textContent = " ";
-    letter10.textContent = " ";
-    correctGuesses= []
-    wrongGuesses= []
+    letter1.textContent = "";
+    letter2.textContent = "";
+    letter3.textContent = "";
+    letter4.textContent = "";
+    letter5.textContent = "";
+    letter6.textContent = "";
+    letter7.textContent = "";
+    letter8.textContent = "";
+    letter9.textContent = "";
+    letter10.textContent = "";
     directionsText.textContent = "Press Space to play again!"
     wins ++;
 }
@@ -112,11 +119,10 @@ document.onkeyup = function game(event) {
     directionsText.textContent = ""
     winsText.textContent = wins
     guessesText.textContent = guesses
-    //var for userGuess
     var userGuess = event.key;//the key the user pressed
     console.log(computerWord)
     wordGenerator(computerWord)
-
+    
     function showLetter() {
         var wordLetters = computerWord.split("")
         for (var i = 0; i < wordLetters.length; i++) {
@@ -154,16 +160,14 @@ document.onkeyup = function game(event) {
             }
         }
     }
+    
 
-    if (wordLetters.includes(userGuess) && keydown === false) {
+    if (wordLetters.includes(userGuess)) {
         addLetter(userGuess);
         showLetter();
     } else {
-        var lettersNot = document.createElement("div");
-        var incorrectLetter = document.createTextNode(userGuess);
-        lettersNot.appendChild(incorrectLetter);
-        document.getElementById("letter-guessed").appendChild(lettersNot);
         addWrongLetter(userGuess);
+        userWrongGuessText.textContent = wrongGuesses
     }
     if (correctGuesses.length + 1 === wordLetters.length) {
         showLetter();
