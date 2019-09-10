@@ -18,6 +18,8 @@ h1 {
     text-align: center;
     letter-spacing: 1.5rem;
     font-size: 28px;
+    color: mediumseagreen;
+    margin: 2%;
 }
 .content {
     display: block;
@@ -27,6 +29,11 @@ h1 {
 #directions {
    font-size: 24px;
    text-align: center;
+   margin-bottom: 2%;
+}
+.start {
+    color: mediumseagreen;
+    text-decoration: underline;
 }
 .lettersGuessed, .counters {
     font-family:'Vidaloka', serif;
@@ -38,9 +45,13 @@ h1 {
     border-style: dotted;
     border-color: grey;
     float: left;
-    margin-left: 4%;
+    margin-left: 2%;
     margin-right: 1%;
+    padding: 1%;
     height: 200px;
+}
+#wrongGuess {
+    margin-top: 2%;
 }
 .counters {
     width:45%;
@@ -49,4 +60,8 @@ h1 {
     border-color: grey;
     float: left;
     height: 200px;
+    padding: 1%;
+}
+#guessCounter {
+    margin-top: 6%;
 }

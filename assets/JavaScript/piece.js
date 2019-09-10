@@ -1,4 +1,4 @@
-var zooAnimals = ["elephant", "penguin", "otter", "peacock", "parrot", "chimpanzee", "panda", "gorilla", "koala", "jackal", "turtle", "grizzly", "jaguar", "hippo", "antelope", "meerkat"];
+var zooAnimals = ["elephant", "giraffe", "penguin", "otter", "peacock", "parrot", "chimpanzee", "panda", "gorilla", "koala", "jackal", "turtle", "grizzly", "jaguar", "hippo", "antelope", "meerkat"];
 var computerWord = zooAnimals[Math.floor(Math.random() * zooAnimals.length)];
 var wordLetters = computerWord.split("")
 for (var i = 0; i < wordLetters.length; i++) {
@@ -149,6 +149,7 @@ document.onkeyup = function game(event) {
         userWrongGuessText.textContent = wrongGuesses
     }
     if (correctGuesses.length + 1 === wordLetters.length) {
+        computerChoiceText.textContent = wordLetters
         showLetter();
         youWin();
         

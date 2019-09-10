@@ -16,15 +16,18 @@
         <img id="image" width="500px" height="300px"
             src="assets/images/Zoo.png" />
         <div>
-            <h1>ZOO ANIMALS WORD GUESS</h1>
+            <h1>ZOO ANIMALS WORD GUESS GAME</h1>
         </div>
     </section>
     <div class="content">
-        <p id="directions">Guess what Zoo Animal is in the box. The length of
+        <div id="directions">
+            <p>Guess the name of the Zoo Animal. The length of
             the word is indicated by underscores. As you guess letters you will
             use your guess count and see if the letter you chose is part of the
             word. If you guess correctly with the guesses available you win a
-            point! Press space to start!</p>
+            point!</p>
+            <p class="start">Press space to start!</p>
+        </div>
         <section class="lettersGuessed">
             <div class="clearfix">Zoo Animal Name:
                 <section class="wrapper">
@@ -62,14 +65,14 @@
                     <div id="random-word"></div>
                 </section>
             </div>
-            <div> Guessed Letters not in word: <p id="letter-guessed"
+            <div id="wrongGuess"> Guessed Letters not in word: <p id="letter-guessed"
                     onkeydown="lettersOnly(this)"></p>
             </div>
         </section>
         <section class="counters">
             <div>Wins: <p id="wins"></p>
             </div>
-            <div>Guesses Left: <p id="guess-count"></p>
+            <div id="guessCounter">Guesses Left: <p id="guess-count"></p>
             </div>
         </section>
     </div>
