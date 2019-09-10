@@ -65,6 +65,11 @@ function addWrongLetter(input) {
         return;
     }
 }
+function youWin(){
+    alert("You guessed right! The animal is " + computerWord)
+    wins++;
+    restart();
+}
 function restart() {
     computerWord = zooAnimals[Math.floor(Math.random() * zooAnimals.length)]
     wordGenerator(computerWord)
@@ -89,32 +94,7 @@ function restart() {
     letter9.textContent = "";
     letter10.textContent = "";
     directionsText.textContent = "Press Space to play again!"
-    wins ++;
 }
-function loseRestart() {
-    computerWord = zooAnimals[Math.floor(Math.random() * zooAnimals.length)]
-    wordGenerator(computerWord)
-    guesses = 15
-    guessesText.textContent = guesses
-    emptyString = ""
-    computerChoiceText.textContent = ""
-    userWrongGuessText.textContent = ""
-    letter1.textContent = " ";
-    letter2.textContent = " ";
-    letter3.textContent = " ";
-    letter4.textContent = " ";
-    letter5.textContent = " ";
-    letter6.textContent = " ";
-    letter7.textContent = " ";
-    letter8.textContent = " ";
-    letter9.textContent = " ";
-    letter10.textContent = " ";
-    correctGuesses= []
-    wrongGuesses= []
-    directionsText.textContent = "Press Space to play again!"
-}
-
-
 document.onkeyup = function game(event) {
     directionsText.textContent = ""
     winsText.textContent = wins
@@ -160,7 +140,6 @@ document.onkeyup = function game(event) {
             }
         }
     }
-    
 
     if (wordLetters.includes(userGuess)) {
         addLetter(userGuess);
@@ -171,14 +150,14 @@ document.onkeyup = function game(event) {
     }
     if (correctGuesses.length + 1 === wordLetters.length) {
         showLetter();
-        alert("You guessed right! The animal is " + computerWord)
-        restart();
+        youWin();
+        
     }
     if (guesses === -1) {
         alert("You're out of guesses...")
         var playAgain = confirm("Play Again?");
         if (playAgain) {
-            loseRestart();
+            restart();
         } else {
             alert("Thanks for playing!");
         

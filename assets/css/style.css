@@ -1,0 +1,52 @@
+* {
+    font-family:'PT Sans', sans-serif;
+    color: whitesmoke;
+}
+.clearfix::after {
+    clear: both;
+    content: "";
+    display: block;}
+body {
+    background-color: #1a1a1a;
+}
+img {
+display: block;
+margin-left:auto;
+margin-right: auto;
+}
+h1 {
+    text-align: center;
+    letter-spacing: 1.5rem;
+    font-size: 28px;
+}
+.content {
+    display: block;
+    margin-left:auto;
+    margin-right: auto;
+}
+#directions {
+   font-size: 24px;
+   text-align: center;
+}
+.lettersGuessed, .counters {
+    font-family:'Vidaloka', serif;
+    font-size: 22px;
+}
+.lettersGuessed {
+    width:45%;
+    border-width: 3px;
+    border-style: dotted;
+    border-color: grey;
+    float: left;
+    margin-left: 4%;
+    margin-right: 1%;
+    height: 200px;
+}
+.counters {
+    width:45%;
+    border-width: 3px;
+    border-style: dotted;
+    border-color: grey;
+    float: left;
+    height: 200px;
+}
