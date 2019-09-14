@@ -8,17 +8,16 @@ for( var i = 0; i<wordLetters.length; i++){
 var letter = wordLetters[i]}
 //var to show and hide elements
 var showLetter = function() {
-    if (userGuess === wordLetters[i]){
-    document.getElementById("random-word").style.display = 'block';}
+    document.getElementById("element").style.display = 'block';
 };
 var hideLetter = function () {
-    document.getElementById("random-word").style.display = 'none';
+    document.getElementById("element").style.display = 'none';
 };
 var showUnderline = function() {
-    document.getElementById("random-word").style.display = 'block';
+    document.getElementById("element").style.display = 'block';
 }
 var hideUnderline = function() {
-    document.getElementById("random-word").style.display = 'none';
+    document.getElementById("element").style.display = 'none';
 }
 //var for guesses, wins, previous guess
 var wins = 0;
@@ -28,7 +27,6 @@ var directionsText = document.getElementById("directions");
 var userWrongGuessText = document.getElementById("letter-guessed");
 var userRightGuessText = document.getElementById("current-word");
 var computerChoiceText = document.getElementById("random-word");
-var computerSpaceText = document.getElementById("underline")
 var guessesText = document.getElementById("guess-count")
 var winsText = document.getElementById("wins")
 
@@ -46,17 +44,13 @@ document.onkeyup = function(event){
     // }}
     //function for putting random word page
     function wordGenerator(word) {
-        var wordLetters = computerWord.split("")
-        for( var i = 0; i<wordLetters.length; i++){
-        var letter = wordLetters[i]}
-        computerChoiceText.textContent = wordLetters
         var length = word.length
         var emptyString = ""
         console.log(length)
         for (var i = 0; i < length; i++) {
             emptyString = emptyString + "_ "
         }
-        computerSpaceText.textContent= emptyString
+        computerChoiceText.textContent = emptyString
     }
    //what happens when space is pressed
     console.log(computerWord)
@@ -83,3 +77,19 @@ document.onkeyup = function(event){
             guesses --;
               }
             }
+
+            function wordGenerator(word) {
+                var wordLetters = computerWord.split("")
+                for( var i = 0; i<wordLetters.length; i++){
+                var letter = wordLetters[i]}
+                console.log(wordLetters)
+                var length = word.length
+                var emptyString = ""
+                console.log(length)
+                for (var i = 0; i < length; i++) {
+                    emptyString = emptyString + "_ "
+                }
+                computerChoiceText.textContent = emptyString
+            }
+            
+            wordGenerator(computerWord)

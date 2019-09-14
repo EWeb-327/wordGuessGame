@@ -1,3 +1,5 @@
+//Create restart function and call it outside of onkeyup
+//create a "show underline" function before the add letter function that shows an undline for each index
 //User presses a key
 // User guesses letters
 document.onkeyup = function(event){
@@ -109,6 +111,13 @@ function replace() {
 var zooAnimals = ["giraffe", "lion", "tiger", "hippo", "elephant", "zebra", "snake", "okapi", "camel", "penguin", "otter", "peacock", "rhino", "monkey", "panda", "sloth", "gorilla", "koala", "kangaroo", "wolf", "tortoise", "lemur", "cheetah", "alligator", "capybara", "meerkat"];
 //var for computerRandomWord
 var computerWord = zooAnimals[Math.floor(Math.random() * zooAnimals.length)];
+var guessAnimal = [];
+    for (var i = 0; i<computerWord.length; i++) {
+        guessAnimal[i] = "_";
+    }
+    var el = document.getElementById("current-word");
+    el.innerHTML=guessAnimal.join(" ");
+
 //var to split computerWord
 var wordLetters = computerWord.split("")
 //var for guesses, wins
@@ -117,7 +126,7 @@ var guesses = 15;
 //vars for quick references
 var directionsText = document.getElementById("directions");
 var userWrongGuessText = document.getElementById("letter-guessed");
-var userRightGuessText = document.getElementById("current-word");
+// var userRightGuessText = document.getElementById("current-word");
 var computerChoiceText = document.getElementById("random-word");
 var guessesText = document.getElementById("guess-count")
 var winsText = document.getElementById("wins")
@@ -137,7 +146,9 @@ document.onkeyup = function(event){
     var userGuess = event.key; //the key the user pressed
     directionsText.textContent = ""
     wordGenerator(computerWord)
+    hangman()
     computerChoiceText.textContent = emptyString
+    function keyUp (e){}
     if(zooAnimals.includes(userGuess)){
         if (computerWord.includes(userGuess)) {
             userRightGuessText.textContent = userGuess
@@ -149,5 +160,17 @@ document.onkeyup = function(event){
     }
  
 }
-
-
+function hangman(){
+    var x = computerWord.length
+    y = x-1
+    while (x>0){
+        var letter = computerWord.substring(y,x);
+       document.getElementById('letter'+x).innerHTML = letter;
+       document.getElementById('letter'+x).style.visibility = "hidden";
+       document.getElementById('underline'+x).style.display = "block";
+       document.getElementById('letter'+x).style.borderBottom = "3px solid black";
+       x--;
+       y--;
+    }
+}
+if ((correctGuesses.indexOf(userGuess) === -1) || (wrongGueses.indexOf(userGuess) === -1)) {}
