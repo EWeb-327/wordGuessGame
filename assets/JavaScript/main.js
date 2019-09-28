@@ -38,8 +38,8 @@ function addWrongLetter(input) {
 }
 function youWin(){
     wins++;
-    alert("You guessed right! The animal is " + computerWord)
-    restart();
+   $("#random-word").text("You win! The word was " + computerWord)
+    setTimeout(restart, 3000);
 }
 function restart() {
     computerChoiceText.textContent = ""
